@@ -1,0 +1,10 @@
+
+<% if session[:user_id].nil? || session[:user_id] == "" %> 
+    Homepage
+<% else %>   
+    <%= @user = User.find_by(id: session[:user_id]).name %>
+<% end %>   
+<br><br> 
+
+<%= link_to "Sign Up", signup_path %><br>
+<%= link_to "Sign In", login_path %>
